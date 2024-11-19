@@ -1,0 +1,147 @@
+/* Estilos globales para el body */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1e3a5f, #b8c6d3); /* Gradiente entre azul profundo y gris claro */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column; /* Alineamos todo verticalmente */
+}
+
+/* Estilos del mensaje de bienvenida */
+.welcome-message {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #211f53; /* Blanco para el texto */
+    font-weight: bold;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #99e0a2, 0 0 20px #99e0a2, 0 0 25px #99e0a2, 0 0 30px #99e0a2; /* Sombra luminosa verde menta */
+    animation: glowEffect 1.5s ease-in-out infinite alternate; /* Animación de resplandor */
+}
+
+/* Keyframes para el resplandor */
+@keyframes glowEffect {
+    0% {
+        text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #99e0a2, 0 0 20px #99e0a2, 0 0 25px #99e0a2, 0 0 30px #99e0a2;
+    }
+    50% {
+        text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #99e0a2, 0 0 40px #99e0a2, 0 0 50px #99e0a2, 0 0 60px #99e0a2;
+    }
+    100% {
+        text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #99e0a2, 0 0 20px #99e0a2, 0 0 25px #99e0a2, 0 0 30px #99e0a2;
+    }
+}
+
+/* Resaltar el span en rosa palo */
+.welcome-message span {
+    font-weight: 700;
+    color: #4097c9; /* Rosa Palo para resaltar */
+}
+
+/* Estilos del contenedor principal */
+.login-container {
+    text-align: center;
+    background-color: #ffffff; /* Blanco para el fondo del contenedor */
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+/* Header */
+header h1 {
+    font-size: 2.5rem;
+    color: #1e3a5f; /* Azul Profundo para el título */
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Estilo para el contenido */
+.content p {
+    font-size: 1.2rem;
+    color: #97a3ae; /* Gris Claro para el texto */
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* Estilo del botón de inicio de sesión */
+button {
+    background: linear-gradient(135deg, #1e3a5f, #99e0a2); /* Gradiente de azul profundo y verde menta */
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.6s ease, transform 0.4s ease; /* Transición más suave */
+    width: 100%;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #99e0a2, #1e3a5f); /* Reversión del gradiente al pasar el ratón */
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    body {
+        padding: 20px; /* Separación alrededor del contenedor */
+    }
+
+    .login-container {
+        padding: 20px; /* Se reduce el padding para dar más espacio */
+        max-width: 90%; /* Hace que el contenedor ocupe el 90% del ancho */
+        height: auto; /* Asegura que el contenedor no se estire demasiado */
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .content p {
+        font-size: 1rem;
+    }
+
+    button {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+}
+
+/* Estilos para dispositivos móviles pequeños */
+@media (max-width: 480px) {
+    body {
+        padding: 10px; /* Separación más pequeña en pantallas más pequeñas */
+    }
+
+    .login-container {
+        padding: 15px; /* Menos padding */
+        max-width: 90%; /* 90% del ancho */
+        height: auto; /* Para evitar que se recorte */
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .content p {
+        font-size: 0.9rem;
+    }
+
+    button {
+        padding: 12px 18px;
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorites - Image Gallery</title>
+    <link rel="stylesheet" href="favorites.css">
+</head>
+
+<body>
+    <header>
+        <h1>Favorites - Image Gallery</h1>
+        <button id="logout-button" onclick="window.location.href = '/'">Logout</button>
+    </header>
+
+
+    <!-- Pestañas -->
+    <div class="tabs">
+        <a href="../dashboard/dashboard.html" class="tab" id="galleryTab">Search</a>
+        <a href="favorites.html" class="tab" id="favoritesTab">Favorites</a>
+    </div>
+
+    <div id="gallery" class="photo-gallery"></div>
+
+    <script src="favorites.js"></script>
+</body>
+
+</html>
