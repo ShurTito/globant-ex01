@@ -3,24 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galería de Imágenes - Iniciar sesión</title>
+    <title>Dashboard - Image Gallery</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <p class="welcome-message">Welcome to <span>Image Gallery</span></p>
-    <div class="login-container">
+    <!-- Login Section -->
+    <div id="login-section" class="login-container" style="display: none;">
         <header>
-            <h1>Login with Unsplash</h1>
+            <h1>Image Gallery Login</h1>
         </header>
-
         <div class="content">
             <p>Welcome to Image Gallery! To start exploring amazing photos, log in with your Unsplash account.</p>
             <button id="login-button">Login with Unsplash</button>
         </div>
-
         <footer>
             <p>© 2024 All rights reserved</p>
         </footer>
+    </div>
+
+    <!-- Dashboard Section -->
+    <div id="dashboard-section" style="display: none;">
+        <header>
+            <h1>Image Gallery</h1>
+            <button id="logout-button">Logout</button>
+        </header>
+        
+        <!-- Pestañas -->
+        <div class="tabs">
+            <a href="#" class="tab" id="galleryTab" style="display: none;">Search</a>
+            <a href="#" class="tab" id="favoritesTab">Favorites</a>
+        </div>
+
+        <!-- Barra de búsqueda -->
+        <div class="search-bar" id="search-bar">
+            <form id="search-form">
+                <input type="text" id="search-query" placeholder="Search photos" />
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <!-- Galería de fotos -->
+        <div id="gallery" class="photo-gallery"></div>
+        <div id="error-message" class="error-message" style="display: none;"></div>
     </div>
 
     <script src="script.js"></script>

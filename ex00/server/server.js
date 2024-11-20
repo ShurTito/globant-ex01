@@ -7,6 +7,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
+// Middleware para servir archivos estáticos
 app.use(express.static(path.join(__dirname, '../public')));
 
 // Ruta de inicio
@@ -36,9 +37,8 @@ app.get('/callback', async (req, res) => {
         const accessToken = response.data.access_token;
         console.log('Token de acceso recibido:', accessToken);
 
-        // Redirige al usuario a una nueva página con el token de acceso como parámetro
-        // Ejemplo de redirección a dashboard.html
-        res.redirect(`/dashboard/dashboard.html?access_token=${accessToken}`);
+        // Redirige al usuario a index.html con el token de acceso como parámetro
+        res.redirect(`/index.html?access_token=${accessToken}`);
 
     } catch (error) {
         console.error('Error al obtener el token:', error.response ? error.response.data : error.message);
@@ -100,6 +100,12 @@ app.get('/favorite-photos', async (req, res) => {
 
 app.get('/search', async (req, res) => {
     const query = req.query.query;  // Obtener la consulta
+    const accessToken = req.query.access_token;  // Obtener el token de acceso
+
+    if (!accessToken) {
+        return res.status(400).send('Token de acceso no disponible');
+    }
+
     try {
         const response = await axios.get(`https://api.unsplash.com/search/photos?query=${encodeURIComponent(query)}&client_id=${process.env.CLIENT_ID}`);
         const photos = response.data.results;
@@ -110,7 +116,11 @@ app.get('/search', async (req, res) => {
     }
 });
 
-
+// Ruta para manejar el logout: eliminamos el token de acceso
+app.get('/logout', (req, res) => {
+    // Limpiamos la sesión del frontend, enviando al usuario a la página de inicio.
+    res.redirect('/');
+});
 
 app.listen(port, () => {
     console.log(`Servidor en http://localhost:${port}`);
